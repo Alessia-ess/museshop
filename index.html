@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muse Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Italianno&family=Moon+Dance&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Estilos generales */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background-color: #f8f9fa;
+      }
+
+      /* Barra de navegación */
+      nav {
+        background: linear-gradient(
+          to bottom,
+          #add8e6,
+          #ffc0cb
+        ); /* Gradiente original */
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px; /* Padding reducido para móvil */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      nav .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      nav .logo-container img {
+        height: 50px; /* Tamaño del logo */
+      }
+
+      nav .logo-container span {
+        font-family: "Italianno", sans-serif;
+        font-size: 30px; /* Tamaño de fuente reducido para móvil */
+        font-weight: bold;
+        color: #333;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 10px; /* Espaciado reducido entre botones */
+        align-items: center;
+      }
+
+      nav ul li {
+        display: flex;
+        align-items: center;
+      }
+
+      nav ul li button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 5px; /* Padding reducido para móvil */
+        transition: background-color 0.3s ease;
+      }
+
+      nav ul li button img {
+        width: 20px; /* Tamaño de los íconos reducido para móvil */
+        height: 20px;
+      }
+
+      nav ul li button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+      }
+
+      /* Contenido principal */
+      .banner {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(200px, 1fr)
+        ); /* Columnas dinámicas */
+        gap: 15px;
+        padding: 15px;
+        background-color: #fff;
+        margin: 10px auto;
+        width: 95%; /* Ancho casi completo en móvil */
+        max-width: 1200px; /* Ancho máximo para desktop */
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .album {
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.2s ease;
+        width: 100%; /* Ancho completo */
+      }
+
+      .album-image {
+        width: 100%;
+        aspect-ratio: 1 / 1; /* Relación de aspecto cuadrada */
+        overflow: hidden;
+      }
+
+      .album-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+      }
+
+      .album-content {
+        padding: 10px;
+      }
+
+      .album-content p {
+        margin: 5px 0;
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .album:hover {
+        transform: scale(1.05);
+      }
+
+      /* Media query para móvil (hasta 600px) */
+      @media (max-width: 600px) {
+        nav .logo-container span {
+          font-size: 24px; /* Tamaño de fuente más pequeño para móvil */
+        }
+
+        nav ul {
+          gap: 5px; /* Espaciado reducido entre botones */
+        }
+
+        nav ul li button {
+          padding: 5px; /* Padding reducido para móvil */
+        }
+
+        nav ul li button img {
+          width: 18px; /* Íconos más pequeños en móvil */
+          height: 18px;
+        }
+
+        .banner {
+          width: 95%; /* Ancho casi completo en móvil */
+          max-width: 400px; /* Ancho máximo para móvil */
+          padding: 10px; /* Padding reducido */
+        }
+      }
+
+      /* Media query para tablet pequeña (600px - 767px) */
+      @media (min-width: 600px) and (max-width: 767px) {
+        .banner {
+          grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        }
+      }
+
+      /* Media query para tablet (768px - 1023px) */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .banner {
+          grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+        }
+      }
+
+      /* Media query para desktop (a partir de 1024px) */
+      @media (min-width: 1024px) {
+        .banner {
+          grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+        }
+      }
+
+      /* Pie de página */
+      footer {
+        background-color: #222; /* Color original */
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      footer address,
+      footer small {
+        display: block;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barra de navegación -->
+    <nav>
+      <!-- Contenedor del logo y el nombre -->
+      <div class="logo-container">
+        <img src="tvirtual/logo1.png" alt="Logo de Muse Shop" />
+        <span style="font-family: 'Italianno'"> Muse Shop</span>
+      </div>
+      <!-- Opciones principales -->
+      <ul>
+        <li>
+          <button onclick="alert('Seleccionaste idioma español')">
+            <img src="tvirtual/Es.png" alt="Idioma Español" />
+          </button>
+        </li>
+        <li>
+          <button onclick="alert('Seleccionaste moneda USD')">
+            <img src="tvirtual/usd.png" alt="Moneda USD" />
+          </button>
+        </li>
+        <li>
+          <button onclick="alert('Abrir búsqueda próximamente')">
+            <img src="tvirtual/lupa.png" alt="Buscar" />
+          </button>
+        </li>
+        <li>
+          <button onclick="alert('Accede a tu cuenta')">
+            <img src="tvirtual/Inicio.png" alt="Cuenta" />
+          </button>
+        </li>
+        <li>
+          <button onclick="alert('Carrito vacío')">
+            <img src="tvirtual/comprar.png" alt="Carrito" />
+          </button>
+        </li>
+        <li>
+          <button onclick="alert('Ayuda disponible próximamente')">
+            <img src="tvirtual/ayuda.png" alt="Ayuda" />
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="banner">
+        <!-- Álbumes -->
+        <div class="album">
+          <div class="album-image">
+            <img src="tvirtual/album1.jpg" alt="Álbum 1" />
+          </div>
+          <div class="album-content">
+            <p>V (BTS) 'Layover'</p>
+            <p>$42.13</p>
+          </div>
+        </div>
+        <div class="album">
+          <div class="album-image">
+            <img src="tvirtual/album2.jpg" alt="Álbum 2" />
+          </div>
+          <div class="album-content">
+            <p>Agust D (BTS) 'D-DAY'</p>
+            <p>$32.13</p>
+          </div>
+        </div>
+        <div class="album">
+          <div class="album-image">
+            <img src="tvirtual/album3.jpg" alt="Álbum 3" />
+          </div>
+          <div class="album-content">
+            <p>BTS 'HYYH'</p>
+            <p>$21.40</p>
+          </div>
+        </div>
+        <div class="album">
+          <div class="album-image">
+            <img src="tvirtual/album4.jpg" alt="Álbum 4" />
+          </div>
+          <div class="album-content">
+            <p>Arctic Monkeys 'I Wanna Be yours' (Vinyl)</p>
+            <p>$26.80</p>
+          </div>
+        </div>
+        <div class="album">
+          <div class="album-image">
+            <img src="tvirtual/album5.jpg" alt="Álbum 5" />
+          </div>
+          <div class="album-content">
+            <p>Lana Del Rey 'Sad Girl' (Vinyl)</p>
+            <p>$28.35</p>
+          </div>
+        </div>
+        <div class="album">
+          <div class="album-image">
+            <img src="tvirtual/album6.jpg" alt="Álbum 6" />
+          </div>
+          <div class="album-content">
+            <p>RM 'Right Place, Wrong Person'</p>
+            <p>$62.20</p>
+          </div>
+        </div>
+        <div class="album">
+          <div class="album-image">
+            <img src="tvirtual/album7.jpg" alt="Álbum 7" />
+          </div>
+          <div class="album-content">
+            <p>Modern Talking 'You're My Heart, You're My Soul' (Vinyl)</p>
+            <p>$25.60</p>
+          </div>
+        </div>
+        <div class="album">
+          <div class="album-image">
+            <img src="tvirtual/album9.jpg" alt="Álbum 9" />
+          </div>
+          <div class="album-content">
+            <p>Ariana Grande 'Positions' (Vinyl)</p>
+            <p>$29.70</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <address>Selene Larcomar.0008784937</address>
+      <small>© 2025 Muse Shop. Todos los derechos reservados.</small>
+    </footer>
+  </body>
+</html>
