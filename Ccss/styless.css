@@ -154,12 +154,32 @@ nav ul li button:hover {
     max-width: 400px; /* Ancho máximo para móvil */
     padding: 10px; /* Padding reducido */
   }
+
+  /* Footer para móvil */
+  footer {
+    padding: 15px; /* Padding reducido para móvil */
+  }
+
+  footer address,
+  footer small {
+    font-size: 14px; /* Tamaño de fuente más pequeño para móvil */
+  }
 }
 
 /* Media query para tablet pequeña (600px - 767px) */
 @media (min-width: 600px) and (max-width: 767px) {
   .banner {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  }
+
+  /* Footer para tablet pequeña */
+  footer {
+    padding: 18px; /* Padding ligeramente mayor para tablet pequeña */
+  }
+
+  footer address,
+  footer small {
+    font-size: 15px; /* Tamaño de fuente ligeramente mayor para tablet pequeña */
   }
 }
 
@@ -168,12 +188,32 @@ nav ul li button:hover {
   .banner {
     grid-template-columns: repeat(3, 1fr); /* 3 columnas */
   }
+
+  /* Footer para tablet */
+  footer {
+    padding: 20px; /* Padding estándar para tablet */
+  }
+
+  footer address,
+  footer small {
+    font-size: 16px; /* Tamaño de fuente estándar para tablet */
+  }
 }
 
 /* Media query para desktop (a partir de 1024px) */
 @media (min-width: 1024px) {
   .banner {
     grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  }
+
+  /* Footer para desktop */
+  footer {
+    padding: 25px; /* Padding mayor para desktop */
+  }
+
+  footer address,
+  footer small {
+    font-size: 18px; /* Tamaño de fuente mayor para desktop */
   }
 }
 
